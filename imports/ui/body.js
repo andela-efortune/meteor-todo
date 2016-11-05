@@ -6,7 +6,7 @@ import './body.html';
 
 Template.body.helpers({
     tasks() {
-        return Tasks.find({});
+        return Tasks.find({}, { sort: { createdAt: -1 } });
     },
 });
 
@@ -14,6 +14,8 @@ Template.body.events({
     'submit .new-task'(event) {
         // prevent defaut browser events such as form submit
         event.preventDefault();
+
+        console.log(event);
 
         // Get value from form element
         const target = event.target;
