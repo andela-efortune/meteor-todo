@@ -38,6 +38,8 @@ Template.body.events({
         Tasks.insert({
             text,
             createdAt: new Date(), // This retrieves the current time
+            owner: Meteor.userId(),
+            username: Meteor.user().username,
         });
 
         // Clear form
